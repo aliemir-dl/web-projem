@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
-import { adminRouter } from "./routes/admin2";
+import { adminRouter, publicRouter } from "./routes/admin2";
 
 export function createServer() {
   const app = express();
@@ -20,6 +20,9 @@ export function createServer() {
 
   // Admin API (token-protected). Provide ADMIN_TOKEN in env or default to "dev-token".
   app.use("/api/admin", adminRouter);
+
+  // Public API (read-only)
+  app.use("/api/public", publicRouter);
 
   return app;
 }

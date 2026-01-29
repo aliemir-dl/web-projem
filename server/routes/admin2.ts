@@ -206,5 +206,25 @@ router.get("/dashboard-stats", requireAdminToken, (_req, res) => {
   res.json(stats);
 });
 
+// Public Routes (No Auth Required)
+const publicRouter = Router();
+
+publicRouter.get("/blog", (_req, res) => {
+  // Return published posts only
+  const published = blogPosts.filter(p => p.status === "published");
+  res.json(published);
+});
+
+publicRouter.get("/projects", (_req, res) => {
+  // Return active projects only
+  const active = projects.filter(p => p.status === "active");
+  res.json(active);
+});
+
+publicRouter.get("/events", (_req, res) => {
+  res.json(events);
+});
+
 export const adminRouter = router;
+export { publicRouter };
 export default router;
