@@ -1,169 +1,78 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-          {/* Company Info */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">E+</span>
+    <footer className="bg-slate-900 text-slate-300 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand Column */}
+          <div className="space-y-4">
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="bg-primary text-white font-bold text-xl px-3 py-1 rounded-lg">
+                E+
               </div>
-              <span className="text-xl font-bold">Türkiye</span>
-            </div>
-            <p className="text-muted-foreground">
-              Küresel fırsatlara açılan kapınız. Erasmus+ ve Avrupa programları
-              ile uluslararası deneyim kazanın.
+              <span className="font-bold text-xl tracking-tight text-white">
+                Türkiye
+              </span>
+            </Link>
+            <p className="text-sm leading-relaxed text-slate-400">
+              Gençlerin ve yetişkinlerin uluslararası fırsatlara erişimini kolaylaştırıyor,
+              Erasmus+ projeleri ile dünyaya açılmalarını sağlıyoruz.
             </p>
-            <div className="flex space-x-4">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-muted-foreground hover:text-primary hover:bg-primary/10"
-              >
-                <Facebook className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-muted-foreground hover:text-primary hover:bg-primary/10"
-              >
-                <Twitter className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-muted-foreground hover:text-primary hover:bg-primary/10"
-              >
-                <Instagram className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-muted-foreground hover:text-primary hover:bg-primary/10"
-              >
-                <Linkedin className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-muted-foreground hover:text-primary hover:bg-primary/10"
-              >
-                <Youtube className="h-5 w-5" />
-              </Button>
+            <div className="flex gap-4 pt-2">
+              <a href="#" className="hover:text-primary transition-colors"><Facebook size={20} /></a>
+              <a href="#" className="hover:text-primary transition-colors"><Twitter size={20} /></a>
+              <a href="#" className="hover:text-primary transition-colors"><Instagram size={20} /></a>
+              <a href="#" className="hover:text-primary transition-colors"><Linkedin size={20} /></a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold">Hızlı Bağlantılar</h3>
-            <nav className="space-y-3">
-              {[
-                { name: "Anasayfa", href: "/" },
-                { name: "Biz Kimiz", href: "/biz-kimiz" },
-                { name: "Projeler", href: "/projeler" },
-                { name: "Etkinlikler", href: "/etkinlikler" },
-                { name: "Blog", href: "/blog" },
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="block text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
+          <div>
+            <h3 className="text-white font-semibold mb-4">Hızlı Bağlantılar</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/biz-kimiz" className="hover:text-primary transition-colors">Biz Kimiz</Link></li>
+              <li><Link to="/projeler" className="hover:text-primary transition-colors">Projeler</Link></li>
+              <li><Link to="/etkinlikler" className="hover:text-primary transition-colors">Etkinlikler</Link></li>
+              <li><Link to="/firsatlar" className="hover:text-primary transition-colors">Fırsatlar</Link></li>
+              <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
+            </ul>
           </div>
 
-          {/* Services */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold">Hizmetlerimiz</h3>
-            <nav className="space-y-3">
-              {[
-                { name: "Erasmus+ Projeleri", href: "/projeler" },
-                { name: "Danışmanlık", href: "/danismanlıklar" },
-                { name: "Yurt Dışı Fırsatları", href: "/firsatlar" },
-                { name: "Eğitim Programları", href: "/etkinlikler" },
-                { name: "Proje Yazımı", href: "/danismanlıklar" },
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="block text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
+          {/* Legal/Support */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Destek</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/iletisim" className="hover:text-primary transition-colors">İletişim</Link></li>
+              <li><Link to="/danismanlıklar" className="hover:text-primary transition-colors">Danışmanlık Al</Link></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Gizlilik Politikası</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Kullanım Şartları</a></li>
+            </ul>
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold">İletişim</h3>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <div className="text-muted-foreground">
-                  <p>Erasmus+ Türkiye Ulusal Ajansı</p>
-                  <p>Bahçelievler, Ankara</p>
-                  <p>Türkiye</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-primary" />
-                <span className="text-muted-foreground">+90 312 XXX XX XX</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-primary" />
-                <span className="text-muted-foreground">
-                  info@eplusturkiye.org
-                </span>
-              </div>
-            </div>
+          <div>
+            <h3 className="text-white font-semibold mb-4">İletişim</h3>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start gap-3">
+                <MapPin size={18} className="text-primary shrink-0" />
+                <span>Teknoloji Vadisi, İstanbul, Türkiye</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone size={18} className="text-primary shrink-0" />
+                <a href="tel:+905551234567" className="hover:text-white">+90 (555) 123 45 67</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={18} className="text-primary shrink-0" />
+                <a href="mailto:info@example.com" className="hover:text-white">info@example.com</a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-muted-foreground/20">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-muted-foreground text-sm">
-              © 2024 E+ Türkiye. Tüm hakları saklıdır.
-            </div>
-            <div className="flex space-x-6 text-sm">
-              <Link
-                to="/gizlilik"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Gizlilik Politikası
-              </Link>
-              <Link
-                to="/kullanim"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Kullanım Şartları
-              </Link>
-              <Link
-                to="/cerezler"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Çerez Politikası
-              </Link>
-            </div>
-          </div>
+        <div className="border-t border-slate-800 mt-12 pt-8 text-center text-sm text-slate-500">
+          <p>&copy; {new Date().getFullYear()} E+ Türkiye. Tüm hakları saklıdır.</p>
         </div>
       </div>
     </footer>

@@ -10,7 +10,17 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import AdminPage from "./pages/Admin";
+
+// Admin Imports
+import { AdminLayout } from "@/components/admin/Layout";
+import AdminLogin from "@/pages/admin/Login";
+import Dashboard from "@/pages/admin/Dashboard";
+import BlogPage from "@/pages/admin/Blog";
+import ProjectsPage from "@/pages/admin/Projects";
+import EventsPage from "@/pages/admin/Events";
+import MessagesPage from "@/pages/admin/Messages";
+import UsersPage from "@/pages/admin/Users";
+import SettingsPage from "@/pages/admin/Settings";
 
 const queryClient = new QueryClient();
 
@@ -77,10 +87,18 @@ const App = () => (
             path="/iletisim"
             element={<PlaceholderPage title="İletişim" />}
           />
-          <Route
-            path="/admin"
-            element={<Layout><AdminPage /></Layout>}
-          />
+
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout><Dashboard /></AdminLayout>} />
+          <Route path="/admin/dashboard" element={<AdminLayout><Dashboard /></AdminLayout>} />
+          <Route path="/admin/blog" element={<AdminLayout><BlogPage /></AdminLayout>} />
+          <Route path="/admin/projects" element={<AdminLayout><ProjectsPage /></AdminLayout>} />
+          <Route path="/admin/events" element={<AdminLayout><EventsPage /></AdminLayout>} />
+          <Route path="/admin/messages" element={<AdminLayout><MessagesPage /></AdminLayout>} />
+          <Route path="/admin/users" element={<AdminLayout><UsersPage /></AdminLayout>} />
+          <Route path="/admin/settings" element={<AdminLayout><SettingsPage /></AdminLayout>} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
